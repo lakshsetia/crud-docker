@@ -15,6 +15,7 @@ func WriteJSON(w http.ResponseWriter, response any, statusCode int) {
 }
 
 func ReadJSON(w http.ResponseWriter, r *http.Request, request any) {
+	defer r.Body.Close()
 	if err := json.NewDecoder(r.Body).Decode(request); err != nil {
 		WriteJSON(w, error.NewErrorResponse(error.LevelBackend, error.MessageBadRequest), http.StatusBadRequest)
 	}
