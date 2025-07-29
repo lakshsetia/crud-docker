@@ -11,6 +11,8 @@ import (
 	"time"
 
 	"github.com/lakshsetia/crud-docker/internal/config"
+	"github.com/lakshsetia/crud-docker/internal/handlers"
+	"github.com/lakshsetia/crud-docker/internal/middlewares"
 	"github.com/lakshsetia/crud-docker/internal/storage/postgresql"
 )
 
@@ -31,6 +33,8 @@ func main() {
 	router := http.NewServeMux()
 
 	// setup handlers
+	router.Handle("/users", middlewares.Middleware(handlers.UserHandler(postgresql)))
+	router.Handle("/users/", middlewares.Middleware(handlers.UserByIdHandler(postgresql)))
 
 	// setup server
 	server := http.Server{
