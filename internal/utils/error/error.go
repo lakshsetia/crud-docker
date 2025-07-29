@@ -11,8 +11,10 @@ const (
 )
 
 const (
-	MessageBadRequest = "bad request"
-	MessageBadURL     = "bad url"
+	MessageInvalidJSONRequest = "invalid json request"
+	MessageBadRequest         = "bad request"
+	MessageBadURL             = "bad url"
+	MessageInvalidMethod      = "invalid method"
 )
 
 func NewErrorResponse(level string, message string) ErrorResponse {
