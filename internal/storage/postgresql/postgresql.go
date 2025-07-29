@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/lakshsetia/crud-docker/internal/config"
+	_ "github.com/lib/pq"
 )
 
 type Postgresql struct {
