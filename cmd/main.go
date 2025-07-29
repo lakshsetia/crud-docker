@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/lakshsetia/crud-docker/internal/config"
+	"github.com/lakshsetia/crud-docker/internal/storage/postgresql"
 )
 
 func main() {
@@ -21,6 +22,10 @@ func main() {
 	}
 
 	// setup database
+	postgresql, err := postgresql.New(config)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// setup router
 	router := http.NewServeMux()
