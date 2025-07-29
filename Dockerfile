@@ -12,4 +12,4 @@ RUN go mod tidy && go build -o app cmd/main.go
 
 EXPOSE 8080
 
-CMD ["./app", "-config", "config/local.yml"]
+CMD ["./app"]
