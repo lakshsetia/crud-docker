@@ -43,6 +43,7 @@ func (p *Postgresql) GetUsers() ([]types.User, error) {
 	if err != nil {
 		return nil, err
 	}
+	defer rows.Close()
 	users := make([]types.User, 0)
 	for rows.Next() {
 		var user types.User
